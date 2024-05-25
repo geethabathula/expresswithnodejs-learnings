@@ -6,7 +6,7 @@ const moviesData = JSON.parse(fs.readFileSync('./movies/movies.json'));
 
 let app = express();//calling express returns a jsobject
 app.use(express.json())
-///api/v1/movies
+//api/v1/movies
 //GET METHOD - get all movies 
 app.get('/api/v1/movies', (req, res) => {
     //to send html response
@@ -29,7 +29,7 @@ app.post('/api/v1/movies', (req, res) => {
     const newMovie = Object.assign({ id: newID }, req.body)
     moviesData.push(newMovie);
 
-    fs.writeFile('./movies/movies.json', JSON.stringify(movies), (err) => {
+    fs.writeFile('./movies/movies.json', JSON.stringify(moviesData), (err) => {
         res.status(201).json({
             status: "success",
             data: {
@@ -38,6 +38,33 @@ app.post('/api/v1/movies', (req, res) => {
         });
     });
 
+})
+
+//api/v1/movies/id
+app.get('/api/v1/movies/:id', (req, res) => {
+    const routeID = Number(req.params.id);
+
+    console.log(routeID);
+    //returns element of the array based on condition
+    const movieFinder = moviesData.find(el =>
+        el.id === routeID
+    )
+
+    if (!movieFinder) {
+        res.status(404).json({
+            status: "failed",
+            message: `Movie with ID ${routeID} is not Found`,
+        }
+
+        )
+    }
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            movies: movieFinder,
+        }
+    })
 })
 
 //Create a server

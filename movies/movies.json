@@ -78,5 +78,21 @@
     "imdbID": "tt0120737",
     "Type": "movie",
     "Poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTYwZmUtZjFjNS00ZTVkLWI2ZmEtNDliZjUyNTI1NmFjXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+  },
+  {
+    "id": 11,
+    "Title": "Gladiator",
+    "Year": "2000",
+    "imdbID": "tt0172495",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMGVmYjNmZTAtNjhlZi00ODRkLTg3MWUtMWJlZTU1YzM3ODVkXkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_SX300.jpg"
+  },
+  {
+    "id": 12,
+    "Title": "Titanic",
+    "Year": "1997",
+    "imdbID": "tt0120338",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjExOTQ1OTgxOV5BMl5BanBnXkFtZTcwODUyMzY0Nw@@._V1_SX300.jpg"
   }
 ]
