@@ -3,14 +3,11 @@ const express = require('express');
 const fs = require('fs');
 
 const moviesData = JSON.parse(fs.readFileSync('./movies/movies.json'));
-
-let app = express();//calling express returns a jsobject
-app.use(express.json())
+let app = express();//calling express returns a js object
+app.use(express.json());
 //api/v1/movies
 //GET METHOD - get all movies 
 app.get('/api/v1/movies', (req, res) => {
-    //to send html response
-    console.log(req.body)
     //JSendJson Format 
     res.status(200).json({
         status: "success",
@@ -40,11 +37,10 @@ app.post('/api/v1/movies', (req, res) => {
 
 })
 
+//Get a movie
 //api/v1/movies/id
 app.get('/api/v1/movies/:id', (req, res) => {
     const routeID = Number(req.params.id);
-
-    console.log(routeID);
     //returns element of the array based on condition
     const movieFinder = moviesData.find(el =>
         el.id === routeID
@@ -55,7 +51,6 @@ app.get('/api/v1/movies/:id', (req, res) => {
             status: "failed",
             message: `Movie with ID ${routeID} is not Found`,
         }
-
         )
     }
 
@@ -64,6 +59,35 @@ app.get('/api/v1/movies/:id', (req, res) => {
         data: {
             movies: movieFinder,
         }
+    })
+})
+
+//Update movie Release Year based on ID
+//api/v1/movies/id
+app.patch('/api/v1/movies/:id', (req, res) => {
+    const routeID = Number(req.params.id);
+
+    const movieToUpdate = moviesData.find(el =>
+        el.id === routeID
+    )
+
+    if (!movieToUpdate) {
+        return res.status(404).json({
+            status: "failed",
+            message: `Movie with ID ${routeID} is not Found`,
+        })
+    }
+    const movieIndex = moviesData.indexOf(movieToUpdate);
+    Object.assign(movieToUpdate, req.body);
+    moviesData[movieIndex] = movieToUpdate;
+
+    fs.writeFile('./movies/movies.json', JSON.stringify(moviesData), (err) => {
+        res.status(200).json({
+            status: "success",
+            data: {
+                movies: movieToUpdate,
+            }
+        })
     })
 })
 
