@@ -86,5 +86,13 @@
     "imdbID": "tt0120338",
     "Type": "movie",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMjExOTQ1OTgxOV5BMl5BanBnXkFtZTcwODUyMzY0Nw@@._V1_SX300.jpg"
+  },
+  {
+    "id": 13,
+    "Title": "The Avengers",
+    "Year": "2012",
+    "imdbID": "tt0848228",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjA0NTQzMjI5OV5BMl5BanBnXkFtZTcwODU5NTk0Nw@@._V1_SX300.jpg"
   }
 ]
