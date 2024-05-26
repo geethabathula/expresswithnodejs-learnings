@@ -1,13 +1,5 @@
 [
   {
-    "id": 1,
-    "Title": "Inception",
-    "Year": "2010",
-    "imdbID": "tt1375666",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BMmU3N2FjY2UtYzQ2ZC00NTg1LWI3YWUtOGNjMWI5ZTM3MDJkXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg"
-  },
-  {
     "id": 2,
     "Title": "The Dark Knight",
     "Year": "2008",

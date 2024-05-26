@@ -90,6 +90,31 @@ app.patch('/api/v1/movies/:id', (req, res) => {
         })
     })
 })
+//Delete movie based on ID
+//api/v1/movies/id
+app.delete('/api/v1/movies/:id', (req, res) => {
+    const routeID = Number(req.params.id);
+    const movieToDelete = moviesData.find(el =>
+        el.id === routeID
+    )
+    if (!movieToDelete) {
+        return res.status(404).json({
+            status: "failed",
+            message: `Movie with ID ${routeID} is not Found`,
+        })
+    }
+    const movieIndex = moviesData.indexOf(movieToDelete);
+    moviesData.splice(movieIndex, 1);
+
+    fs.writeFile('./movies/movies.json', JSON.stringify(moviesData), (err) => {
+        res.status(204).json({
+            status: "success",
+            data: {
+                movies: null,
+            }
+        })
+    })
+})
 
 //Create a server
 const portnumber = 3000;
