@@ -4,13 +4,21 @@ const fs = require('fs');
 
 const moviesData = JSON.parse(fs.readFileSync('./movies/movies.json'));
 let app = express();//calling express returns a js object
-app.use(express.json());
+//custom middleware
+const logger = function (req, res, next) {
+    console.log('Custom Middleware Called');
+    req.requestedAt = new Date().toISOString();//adding custom middleware property
+    next();//next function
+}
 
+app.use(express.json());
+app.use(logger);//order matters
 //GET METHOD - get all movies 
 const getAllMovies = (req, res) => {
     //JSendJson Format 
     res.status(200).json({
         status: "success",
+        requestedAt: req.requestedAt,
         data: {
             movies: moviesData,
         },
