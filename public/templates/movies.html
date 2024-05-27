@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExpressJS Movie API</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ExpressJS Movie API Overview</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="function">
+          <h3>checkID Middleware</h3>
+          <p>
+            Checks if a movie with the given ID exists. If not, it returns a 404
+            error.
+          </p>
+        </div>
+        <div class="function">
+          <h3>validateBody Middleware</h3>
+          <p>
+            Validates the request body to ensure it contains the required
+            properties (Title and Year).
+          </p>
+        </div>
+        <div class="function">
+          <h3>getAllMovies</h3>
+          <p>
+            Handles GET requests to retrieve all movies. Responds with a list of
+            all movies in JSON format.
+          </p>
+        </div>
+        <div class="function">
+          <h3>createNewMovie</h3>
+          <p>
+            Handles POST requests to create a new movie. Adds a new movie to the
+            database and responds with the created movie.
+          </p>
+        </div>
+        <div class="function">
+          <h3>findMovieByID</h3>
+          <p>
+            Handles GET requests to retrieve a movie by its ID. Responds with
+            the movie data if found.
+          </p>
+        </div>
+        <div class="function">
+          <h3>updateMovieByID</h3>
+          <p>
+            Handles PATCH requests to update a movie's details based on its ID.
+            Responds with the updated movie data.
+          </p>
+        </div>
+        <div class="function">
+          <h3>deleteMovieByID</h3>
+          <p>
+            Handles DELETE requests to remove a movie by its ID. Responds with a
+            success message if the deletion is successful.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2024 ExpressJS Movie API, Geetha Supriya Bathula</p>
+    </footer>
+  </body>
+</html>
